@@ -1,0 +1,120 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+canvas {
+    position: fixed ;
+    top: 0;
+    left: 0;
+
+    z-index: -1;
+}
+
+button {
+    height: 1cm;
+    width: 3cm;
+    position: relative;
+    top: 0;
+    left: 0;
+
+    background-color: #000;
+    border: solid 1px #0000ff;
+
+    color: #0000ff;
+    font-weight: bold;
+}
+
+input {
+    width: auto;
+}
+
+button:active {
+    background-color: #ccccffcc;
+}
+
+dialog {
+    width: 100%;
+    height: 100vh;
+
+    position: absolute ;
+    top: 0;
+    left: 0;
+
+    align-items: center;
+    justify-content: center;
+
+    background-color: #cccccc11;
+    border: none;
+
+    padding: 0 25%;
+}
+
+dialog>form {
+    width: 50vw;
+    background-color: #000;
+    color: #ddd;
+    border: solid 1px #0000ff;
+    padding: 0 0.2cm;
+
+}
+
+dialog .dialog-header {
+    height: 1.5cm;
+
+}
+
+dialog .dialog-body {
+
+    display: grid ;
+    grid-template-rows: repeat(6,1cm) 1fr;
+    grid-template-columns: repeat(4,1fr);
+    gap: 0.3cm;
+}
+
+dialog .dialog-body .full-row {
+    grid-column: 1/5;
+}
+
+dialog .dialog-body .half-row {
+    grid-column: 1/3;
+}
+
+dialog .dialog-body .another-half-row {
+    grid-column: 3/5;
+}
+
+dialog .dialog-footer {
+    height: 1.5cm;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+    gap: 0.2cm;
+
+    padding: 0.2cm;
+}
+
+ul {
+    width: 10cm;
+    max-height: 5cm ;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    border: solid 1px #0000ff;
+
+    color: #ddd;
+}
+
+ul li {
+    width: 100%;
+    height: 1cm ;
+    border-top: solid 1px #0000ff;
+
+    list-style: none;
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planets</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./vect.js"></script>
+    <script src="./Planet.js"></script>
+    <script src="./index.js" defer ></script>
+</head>
+<body>
+    <nav>
+        <button onclick="document.getElementsByTagName('dialog')[0].setAttribute('open','')">Add Planet</button>
+        <button onclick="plause()" id="btn-plause">Play</button>
+        <button> <input type="checkbox" name="" checked onchange="showPath = !showPath ;"> Path</button>
+    </nav>
+    <aside>
+        <ul>
+            <h2>List of planets</h2>
+        </ul>
+    </aside>
+    
+    <dialog >
+        <form id="add-form">
+            <div class="dialog-header">
+                <h2>
+                    Add Planet
+                </h2>
+            </div>
+            <div class="dialog-body">
+                <label class="full-row" for="">Position :</label>
+                <label for="x">x :</label>
+                <input type="number" name="" id="x" step="any">
+                <label for="y">y :</label>
+                <input type="number" name="" id="y" step="any">
+                <!--Radius/Mass-->
+                <label class="half-row" for="r">Radius :</label>
+                
+                <input class="another-half-row" type="number" name="" id="r" step="any" onchange="calculeMass()">
+                <label class="half-row" for="m">Mass :</label>
+                <output class="another-half-row" id="m"></output>
+                <!--Vitess-->
+                <label class="full-row" for="">Velocity :</label>
+                <label for="x">Vx :</label>
+                <input type="number" name="" id="vx" step="any">
+                <label for="y">Vy :</label>
+                <input type="number" name="" id="vy" step="any">
+            </div>
+            <div class="dialog-footer">
+                <button type="reset">Cancel</button>
+                <button type="submit">Add</button>
+            </div>
+        </form>
+    </dialog>
+    <canvas id="game">
+        Your browser do not support canvas element .
+    </canvas>
+    <script>
+        let form = document.querySelector('#add-form');
+        form.onsubmit = ((e)=>{
+            e.preventDefault(); 
+            var ids = ['x','y','r','vx','vy'];
+            var vals = [];
+
+            for(let id of ids ){
+                vals.push( Number(document.getElementById(id).value) || 0 )
+            }
+
+            let p = new Planet(vals[0],vals[1],vals[2],vals[3],vals[4])
+
+            form.reset()
+
+        })
+
+        form.onreset = ((e)=>{
+            //e.preventDefault()
+            document.getElementsByTagName('dialog')[0].removeAttribute('open')
+        })
+
+        function calculeMass(){
+            let out = document.getElementsByTagName('output')[0];
+            let r = document.getElementById('r').value
+            out.innerText = r*10**5
+        }
+
+        function plause(){
+            pause = !pause ;
+            document.querySelector('#btn-plause').innerHTML = pause ? 'Play' : 'Pause';
+            animate()
+        }
+    </script>
+</body>
+</html>
