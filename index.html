@@ -12,11 +12,11 @@
 </head>
 <body>
     <nav>
-        <button onclick="document.getElementsByTagName('dialog')[0].setAttribute('open','')">Add Planet</button>
+        <button onclick="document.getElementsByTagName('dialog')[0].showModal()">Add Planet</button>
         <button onclick="plause()" id="btn-plause">Play</button>
         <button> <input type="checkbox" name="" checked onchange="showPath = !showPath ;"> Path</button>
     </nav>
-    <aside>
+    <aside style="display:none;" >
         <ul>
             <h2>List of planets</h2>
         </ul>
@@ -82,7 +82,7 @@
         function calculeMass(){
             let out = document.getElementsByTagName('output')[0];
             let r = document.getElementById('r').value
-            out.innerText = r*10**5
+            out.innerText = r*10**5+"Kg"
         }
 
         function plause(){
