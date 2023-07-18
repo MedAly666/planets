@@ -76,7 +76,7 @@
 
         form.onreset = ((e)=>{
             //e.preventDefault()
-            document.getElementsByTagName('dialog')[0].removeAttribute('open')
+            document.getElementsByTagName('dialog')[0].close()
         })
 
         function calculeMass(){
