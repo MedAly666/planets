@@ -36,24 +36,15 @@ button:active {
 }
 
 dialog {
-    width: 100%;
-    height: 100vh;
-
-    position: absolute ;
-    top: 0;
-    left: 0;
-
+    width:auto;
+    
     align-items: center;
     justify-content: center;
-
-    background-color: #cccccc11;
-    border: none;
-
-    padding: 0 25%;
 }
 
-dialog>form {
-    width: 50vw;
+dialog form {
+    width: 100%;
+    
     background-color: #000;
     color: #ddd;
     border: solid 1px #0000ff;
@@ -98,6 +89,10 @@ dialog .dialog-footer {
     padding: 0.2cm;
 }
 
+dialog form input {
+	height:1cm;
+}
+
 ul {
     width: 10cm;
     max-height: 5cm ;
@@ -117,4 +112,18 @@ ul li {
     border-top: solid 1px #0000ff;
 
     list-style: none;
+}
+
+
+@media only screen and (max-width: 600px) {
+  dialog{
+  	width:100%;
+  	height:100vh;
+  }
+  
+  dialog .dialog-body {
+  	display:flex;
+  	flex-direction:column;
+  }
+  	
 }
